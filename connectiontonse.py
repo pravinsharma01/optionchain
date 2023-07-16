@@ -18,8 +18,8 @@ try:
     data = session.get(url, headers = headers)
 except requests.exceptions.ConnectionError:
     time.sleep(100)
-data = data.json()
-st.json(data)
+data1 = data.json()
+st.json(data1)
 
 #st.write(""" #My first App *""", data)
 #st.dataframe(df)
