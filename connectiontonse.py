@@ -15,7 +15,6 @@ headers = {
 session = requests.Session()
 try:
     data = session.get(url, headers = headers).json()['records']['data']
-    break
 except requests.exceptions.ConnectionError:
     time.sleep(100)
 
