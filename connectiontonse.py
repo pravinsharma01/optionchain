@@ -20,5 +20,6 @@ except requests.exceptions.ConnectionError:
     time.sleep(100)
 data = data.json()
 st.json(data)
+
 #st.write(""" #My first App *""", data)
 #st.dataframe(df)
