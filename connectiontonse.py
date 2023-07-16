@@ -19,17 +19,5 @@ except requests.exceptions.ConnectionError:
     time.sleep(100)
 data = data.json()
 
-"""for i in data:
-    for j,k in i.items():
-        if j == 'CE' or j == 'PE':
-            info = k
-            info ['instrumentType'] = j
-            opdata.append(info)
-            current_expiry_data.append(info['expiryDate'])
-            
-current_expiry_data= list(set(current_expiry_data)) # list of expries 
-df = pd.DataFrame(opdata) # converting Jason into dataframe
-current_market_price = df['underlyingValue'][0]"""
-
 st.write(""" #My first App *""", data)
 #st.dataframe(df)
