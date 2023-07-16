@@ -13,7 +13,12 @@ headers = {
     }
 
 session = requests.Session()
-data = session.get(url, headers = headers).json()['records']['data']
+try:
+    data = session.get(url, headers = headers).json()['records']['data']
+    break
+except requests.exceptions.ConnectionError:
+    time.sleep(100)
+
 for i in data:
     for j,k in i.items():
         if j == 'CE' or j == 'PE':
