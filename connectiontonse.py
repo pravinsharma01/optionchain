@@ -19,6 +19,7 @@ except requests.exceptions.ConnectionError:
     time.sleep(100)
 
 print (data)
+
 """for i in data:
     for j,k in i.items():
         if j == 'CE' or j == 'PE':
@@ -29,8 +30,7 @@ print (data)
             
 current_expiry_data= list(set(current_expiry_data)) # list of expries 
 df = pd.DataFrame(opdata) # converting Jason into dataframe
-current_market_price = df['underlyingValue'][0]
+current_market_price = df['underlyingValue'][0]"""
 
-st.write(""" #My first App *""")
-st.dataframe(df)
-"""
+#st.write(""" #My first App *""")
+#st.dataframe(df)
