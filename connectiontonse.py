@@ -31,5 +31,5 @@ current_expiry_data= list(set(current_expiry_data)) # list of expries
 df = pd.DataFrame(opdata) # converting Jason into dataframe
 current_market_price = df['underlyingValue'][0]"""
 
-#st.write(""" #My first App *""")
+st.write(""" #My first App *""", data)
 #st.dataframe(df)
