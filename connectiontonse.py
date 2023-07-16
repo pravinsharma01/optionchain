@@ -17,8 +17,7 @@ try:
     data = session.get(url, headers = headers)
 except requests.exceptions.ConnectionError:
     time.sleep(100)
-
-print (data)
+data = data.json()
 
 """for i in data:
     for j,k in i.items():
