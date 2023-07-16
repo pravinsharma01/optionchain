@@ -3,8 +3,6 @@ import requests
 import pandas as pd
 import nse
 
-
-nse.nse()
 df, current_market_price = nse.convertintodataframe()
 st.write(""" #My first App *""")
 st.dataframe(df)
