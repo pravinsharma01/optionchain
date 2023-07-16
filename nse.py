@@ -4,6 +4,7 @@ Option chain data by getting data from NSE and using flask for HTML display
 """
 import requests
 import pandas as pd
+from bs4 import BeautifulSoup
 import json
 
 def nse():
@@ -19,13 +20,16 @@ def nse():
         
     session = requests.Session()
     data = session.get(url, headers = headers)
-    data= data.json()
-    # Serializing json
-    json_object = json.dumps(data)
- 
-    # Writing to sample.json
-    with open("sample.json", "w") as outfile:
-        outfile.write(json_object)
+    soup = BeautifulSoup(data.content, "html.parser")
+    txtfile = open("nsefile.txt", "w")
+    txtfile.writelines(soup)
+    txtfile.close()
+
+    filename = open('nsefile.txt','r')
+    dic = filename.read()
+    outfile = open( "sample.json", "w")
+    outfile.write(dic)
+    outfile.close()
     return 
 def convertintodataframe():
     opdata= []
@@ -35,8 +39,7 @@ def convertintodataframe():
     with open('sample.json', 'r') as openfile:
         # Reading from json file
         json_object = json.load(openfile)
-        print (json_object)
-        
+    
     for i in json_object['records']['data']:
         for j,k in i.items():
             if j == 'CE' or j == 'PE':
