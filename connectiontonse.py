@@ -18,7 +18,8 @@ try:
 except requests.exceptions.ConnectionError:
     time.sleep(100)
 
-for i in data:
+print (data)
+"""for i in data:
     for j,k in i.items():
         if j == 'CE' or j == 'PE':
             info = k
@@ -32,3 +33,4 @@ current_market_price = df['underlyingValue'][0]
 
 st.write(""" #My first App *""")
 st.dataframe(df)
+"""
