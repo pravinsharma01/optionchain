@@ -4,6 +4,20 @@ from datetime import datetime, timedelta
 import numpy as np
 import streamlit as st
 
+ceop = {}
+count = 0
+listofsp = []
+columns =['Time', 'Total Call Writer','Total Put Writer', 'Difference','PCR', 'Signal']
+PCRD = pd.DataFrame(columns = columns)
+PCRDV = pd.DataFrame(columns = columns)
+url = "https://www.nseindia.com/api/option-chain-indices?symbol=NIFTY"
+usename = "pravin-9558824321"
+headers = {
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept-Language": "en,en-US;q=0.9,hi;q=0.8",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
+    }
+
 # Function to get current time
 def currenttime():
     local_timezone = timedelta(hours=5, minutes=30)  # India timezone offset is UTC+5:30
