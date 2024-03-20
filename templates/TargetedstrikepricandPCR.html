@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Output</title>
+    <style>
+        /* Define CSS styles for Menu */
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            padding: 10px 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+        }
+
+        /* Define CSS styles for DataFrame sections */
+        .dataframe-section {
+            margin-bottom: 20px;
+        }
+
+        /* Define CSS styles for DataFrame tables */
+        .dataframe-table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .dataframe-table th, .dataframe-table td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        .dataframe-table th {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/maxpain">Max Pain</a></li>
+            <li><a href="/TargetedstrikepricandPCR">Targeted Strike Price and PCR</a></li>
+        </ul>
+    </nav>
+
+    <h1>Open Interest:</h1>
+    
+    <div class="dataframe-section">
+        <h2>Most active strikeprices:</h2>
+        <table class="dataframe-table">
+            {{ df1 | safe }}
+        </table>
+    </div>
+    
+    <div class="dataframe-section">
+        <h2>PCR Data of the above Stike Prices:</h2>
+        <table class="dataframe-table">
+            {{ df2 | safe }}
+        </table>
+    </div>
+    
+    <script type="text/javascript">
+        setTimeout(function () {
+            location.reload();
+        }, 180000); // Refresh the page every 3 minutes (modify as needed)
+    </script>
+</body>
+</html>

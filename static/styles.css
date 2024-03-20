@@ -1,0 +1,42 @@
+/* Define CSS styles for the table */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f9f9f9; /* Light gray background for header cells */
+}
+
+/* Define CSS classes for specific cell values */
+.highlight-max {
+    background-color: green; /* Green background for maximum values */
+}
+
+.highlight-min {
+    background-color: red; /* Red background for minimum values */
+}
+
+.signal-buy {
+    background-color: green; /* Green background for "Buy" signal */
+}
+
+.signal-sell {
+    background-color: red; /* Red background for "Sell" signal */
+}
+
+.analysis-red {
+    background-color: red; /* Red background for "Long Unwinding" and "Shorts Buil-up" */
+}
+
+.analysis-green {
+    background-color: green; /* Green background for "Long Build-up" and "Shorts Unwinding" */
+}
+
+/* Add more CSS classes and styles as needed */

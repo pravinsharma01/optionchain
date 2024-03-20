@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" type="text/css">
+    <style>
+        /* CSS for menu styling */
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        nav ul li {
+            float: left;
+        }
+        
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        
+        nav ul li a:hover {
+            background-color: #111;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/maxpain">Maxpain</a></li>
+            <li><a href="/TargetedstrikepricandPCR">Targeted Strike Price and PCR</a></li>
+        </ul>
+    </nav>
+
+    <h1>Below is the Data according to Max pain:</h1>
+    
+    <h2>Most active Stike Prices:</h2>
+    {{ df1 | safe }}
+    
+    <script type="text/javascript">
+        setTimeout(function () {
+            location.reload();
+        }, 180000); // Refresh the page every 3 minutes (modify as needed)
+    </script>
+</body>
+</html>
