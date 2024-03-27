@@ -8,6 +8,10 @@ from datetime import datetime, timedelta
 import numpy as np
 from flask import Flask, render_template, request, redirect, url_for
 from flask import Flask, render_template_string
+import time
+import aiohttp
+import asyncio
+import threading
 
 app = Flask(__name__)
 ceop = {}
@@ -41,8 +45,12 @@ def GetOCdatafromwebsite(url, headers, Indices):
     opdata= []
     current_expiry_data = []
     
+    
     session = requests.Session()
-    data = session.get(url, headers = headers).json()['records']['data']
+  
+    data = session.get(url, headers=headers).json()['records']['data']
+    
+    #data = session.get(url, headers = headers).json()['records']['data']
     
     for i in data:
         for j,k in i.items():
@@ -395,51 +403,6 @@ def style_dataframe(df1):
     return styled_df
 
 
-
-###########################################################################################################################################################################
-# all in one coustimseed
-"""
-Data, current_market_price = GetOCdatafromwebsite(url, headers)
-curr_clock = currenttime()
-finalOC, finalOC_styled, ceop, peop = Getdataorganised(Data)
-
-all_data_timewise = pd.DataFrame()
-
-
-
-def dataframeforchart(maxpain, selectofsp, finalOC):
-    listofsp = []
-    y = 0
-    
-    # Getting the targeted stike prices
-    for i in range(len(finalOC['strikePrice'])):
-        if maxpain == int(finalOC.iloc[i]['strikePrice']):
-            for x in range(selectofsp):
-                y = y + 50
-                a = y + maxpain
-                listofsp.append (a)
-                b =  maxpain - y
-                listofsp.append (b)
-
-    listofsp.append(maxpain)
-    listofsp.sort(reverse=True)  # Sort the list in descending order
-    for i in range(len(listofsp)):
-        if listofsp[0] in finalOC['strikePrice'].values:
-            b = finalOC[finalOC['strikePrice'] == listofsp[0]]
-            
-            print (b['strikePrice'])
-
-    #add row in new dataframe
-    a = finalOC[finalOC['strikePrice'].isin(listofsp)]
-    return
-
-maxpain = 19500
-selectofsp = 2
-dataframeforchart( maxpain, selectofsp, finalOC)
-
-"""
-
-###############################################################################3
 # Flask Code to display an HTML link
 @app.route('/')
 def index():
